@@ -3,7 +3,7 @@ class Pet < ApplicationRecord
     validates :name, presence: true
     validates :breed, presence: true
     validates :birthdate, presence: true
-     
+    belongs_to :clients
 
     def number_of_visits_vet
         PetHistory.where(Pet_id: id).count
