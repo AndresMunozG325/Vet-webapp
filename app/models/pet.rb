@@ -6,6 +6,27 @@ class Pet < ApplicationRecord
      
 
     def number_of_visits_vet
-        Pet_history.where(Pet_id: id).count
+        PetHistory.where(Pet_id: id).count
     end
+
+    def average_weight
+        weight = PetHistory.where(Pet_id: id).pluck(:weight)
+        weight.sum / weight.length
+    end
+    
+    def average_height
+        height = PetHistory.where(Pet_id: id).pluck(:height)
+        height.sum / height.length
+    end
+
+    def max_height
+        max_height = PetHistory.where(Pet_id: id).pluck(:height)
+        max_height.max
+    end
+
+    def max_weight
+        max_weight = PetHistory.where(Pet_id: id).pluck(:weight)
+        max_weight.max
+    end
+    
 end
