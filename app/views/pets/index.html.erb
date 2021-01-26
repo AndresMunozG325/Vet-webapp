@@ -8,7 +8,9 @@
       <th>Name</th>
       <th>Breed</th>
       <th>Birthdate</th>
+      <th>Number of vet visits</th>
       <th>History</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,11 +21,13 @@
         <td><%= pet.name %></td>
         <td><%= pet.breed %></td>
         <td><%= pet.birthdate %></td>
+        <td><%= pet.number_of_visits_vet %></td>
         <td>
           <% pet.pet_histories.each do |h| %>
             <ul>
               <li>
-                <%= h.pet_history_id %>
+                <%= h.id %>
+                <%= link_to 'Show description', pet_history_path(h.id) %>
               </li>
             </ul>
           <% end %>

@@ -4,4 +4,8 @@ class Pet < ApplicationRecord
     validates :breed, presence: true
     validates :birthdate, presence: true
      
+
+    def number_of_visits_vet
+        Pet_history.where(Pet_id: id).count
+    end
 end
