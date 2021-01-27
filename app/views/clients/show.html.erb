@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<h1>Client File</h1>
 <p>
   <strong>Name:</strong>
   <%= @client.name %>
@@ -14,6 +14,27 @@
   <strong>Mail:</strong>
   <%= @client.mail %>
 </p>
+
+<h2>Pets</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Max height</th>
+      <th>Max weight</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @pets.each do |pet| %>
+      <tr>
+        <td><%= pet.name %></td>
+        <td><%= pet.max_height %></td>
+        <td><%= pet.max_weight %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
 
 <%= link_to 'Edit', edit_client_path(@client) %> |
 <%= link_to 'Back', clients_path %>
